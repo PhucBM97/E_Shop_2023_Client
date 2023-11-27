@@ -1,0 +1,12 @@
+<!-- app.component.html -->
+<div class="phone-list">
+    <div *ngFor="let item of products" class="phone-item">
+      <img src="https://cdn.tgdd.vn/Products/Images/42/305658/iphone-15-pro-max-blue-thumbnew-600x600.jpg" alt="Phone" class="phone-image" />
+      <div class="phone-details">
+        <h3>{{ item.name }}</h3>
+        <p>{{ item.Id }}</p>
+        <span class="phone-price">{{ item.Id }}</span>
+      </div>
+    </div>
+  </div>
+  
