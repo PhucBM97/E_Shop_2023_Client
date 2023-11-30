@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment.development';
   providedIn: 'root'
 })
 export class ProductService {
-  private url = 'SanPham';
+  private url = 'Product';
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<any>{
