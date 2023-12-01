@@ -7,14 +7,23 @@ import { HomePageComponent } from './Components/home-page/home-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ErrPageComponent } from './Components/err-page/err-page.component';
 import { ListProductsComponent } from './Components/list-products/list-products.component';
-
+import { ShopPageComponent } from './Components/shop-page/shop-page.component';
+import { LayoutComponent } from './Components/layout/layout.component';
+import { HeaderComponent } from './Components/header/header.component';
+import { FooterComponent } from './Components/footer/footer.component';
+import { LoaderSpinnerComponent } from './Components/loader-spinner/loader-spinner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     ErrPageComponent,
-    ListProductsComponent
+    ListProductsComponent,
+    ShopPageComponent,
+    LayoutComponent,
+    HeaderComponent,
+    FooterComponent,
+    LoaderSpinnerComponent,
   ],
   imports: [
     BrowserModule,

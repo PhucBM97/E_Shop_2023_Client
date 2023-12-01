@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { Product } from 'src/app/Models/Product';
+import { ProductService } from 'src/app/Services/product.service';
 
 @Component({
   selector: 'app-list-products',
@@ -8,5 +10,6 @@ import { Component, Input } from '@angular/core';
 })
 export class ListProductsComponent {
 
+  @Input() data: Product[] = [];
   
 }
