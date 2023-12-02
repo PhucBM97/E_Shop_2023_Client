@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ProductService } from 'src/app/Services/product.service';
 
 @Component({
   selector: 'app-err-page',
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./err-page.component.scss']
 })
 export class ErrPageComponent {
+  products : any;
+  constructor(private productService: ProductService){}
 
+  ngOnInit(){
+    this.productService.getAll().subscribe(res => {
+      this.products = res;
+    },
+    err => {
+      console.log("Lỗi");
+    });
+  }
 }

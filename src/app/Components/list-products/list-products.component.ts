@@ -9,7 +9,9 @@ import { ProductService } from 'src/app/Services/product.service';
   styleUrls: ['./list-products.component.scss']
 })
 export class ListProductsComponent {
+  constructor(private productService: ProductService){}
 
-  @Input() data: Product[] = [];
+  @Input() products :any;
+  
   
 }
