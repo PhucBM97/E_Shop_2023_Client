@@ -12,6 +12,8 @@ import { LayoutComponent } from './Components/layout/layout.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { LoaderSpinnerComponent } from './Components/loader-spinner/loader-spinner.component';
+import { ProductDetailComponent } from './Components/product-detail/product-detail.component';
+import { FileuploadComponent } from './Components/fileupload/fileupload.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { LoaderSpinnerComponent } from './Components/loader-spinner/loader-spinn
     HeaderComponent,
     FooterComponent,
     LoaderSpinnerComponent,
+    ProductDetailComponent,
+    FileuploadComponent,
   ],
   imports: [
     BrowserModule,
