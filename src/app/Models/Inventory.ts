@@ -1,9 +1,9 @@
 import { Product } from "./Product";
 
 export interface Inventory {
-    inventoryId: number;
+    inventoryProsId: number;
     quantity: number | null;
     createdDate: string | null;
     updatedDate: string | null;
-    product: Product | null;
+    inventoryPros: Product;
 }

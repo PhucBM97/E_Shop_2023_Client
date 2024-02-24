@@ -4,6 +4,7 @@ import { Category } from "./Category";
 import { ColorsSpecific } from "./ColorsSpecific";
 import { Inventory } from "./Inventory";
 import { OrderDetail } from "./OrderDetail";
+import { Image } from "./Image";
 import { Promotion } from "./Promotion";
 import { SizesSpecific } from "./SizesSpecific";
 
@@ -12,7 +13,6 @@ export interface Product {
     productId: number;
     promotionId: number | null;
     categoryId: number | null;
-    inventoryId: number | null;
     brandId: number | null;
     productName: string | null;
     price: number | null;
@@ -24,11 +24,11 @@ export interface Product {
     updatedDate: string | null;
     brand: Brand | null;
     category: Category | null;
-    inventory: Inventory | null;
     promotion: Promotion | null;
+    inventory: Inventory | null;
     cartItems: CartItem[];
     colorsSpecifics: ColorsSpecific[];
-    //images: ProductImage[];
+    images: Image[];
     orderDetails: OrderDetail[];
     sizesSpecifics: SizesSpecific[];
 }

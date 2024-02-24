@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Product } from 'src/app/Models/Product';
 import { ProductService } from 'src/app/Services/product.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { ProductService } from 'src/app/Services/product.service';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent {
-  products : any;
+  products : Product[] = [];
   constructor(private productService: ProductService){}
 
   ngOnInit(){

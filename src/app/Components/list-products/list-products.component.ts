@@ -11,7 +11,7 @@ import { ProductService } from 'src/app/Services/product.service';
 export class ListProductsComponent {
   constructor(private productService: ProductService){}
 
-  @Input() products :any;
+  @Input() products : Product[] = [];
   
   
 }
