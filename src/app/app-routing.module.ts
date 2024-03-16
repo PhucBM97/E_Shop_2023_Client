@@ -5,9 +5,16 @@ import { ErrPageComponent } from './Components/err-page/err-page.component';
 import { ListProductsComponent } from './Components/list-products/list-products.component';
 import { ShopPageComponent } from './Components/shop-page/shop-page.component';
 import { FileuploadComponent } from './Components/fileupload/fileupload.component';
+import { LoginComponent } from './Components/login/login.component';
+import { SignupComponent } from './Components/signup/signup.component';
 
 const routes: Routes = [
-  { path: '',
+  { 
+    path: '',
+    component: LoginComponent
+  },
+  { 
+    path: 'home',
     component: HomePageComponent
   },
   {
@@ -19,13 +26,29 @@ const routes: Routes = [
     component: ShopPageComponent
   },
   {
+    path: 'file',
+    component: FileuploadComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'signup',
+    component: SignupComponent
+  },
+
+
+
+
+
+
+
+  
+  {
     path: '**',
     component: ErrPageComponent
   },
-  {
-    path: 'file',
-    component: FileuploadComponent
-  }
 ];
 
 @NgModule({

@@ -14,6 +14,9 @@ import { FooterComponent } from './Components/footer/footer.component';
 import { LoaderSpinnerComponent } from './Components/loader-spinner/loader-spinner.component';
 import { ProductDetailComponent } from './Components/product-detail/product-detail.component';
 import { FileuploadComponent } from './Components/fileupload/fileupload.component';
+import { LoginComponent } from './Components/login/login.component';
+import { SignupComponent } from './Components/signup/signup.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,11 +31,14 @@ import { FileuploadComponent } from './Components/fileupload/fileupload.componen
     LoaderSpinnerComponent,
     ProductDetailComponent,
     FileuploadComponent,
+    LoginComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
