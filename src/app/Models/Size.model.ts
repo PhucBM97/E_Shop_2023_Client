@@ -1,4 +1,4 @@
-import { SizesSpecific } from "./SizesSpecific";
+import { SizesSpecific } from "./SizesSpecific.model";
 
 export interface Size {
     sizeId: number;

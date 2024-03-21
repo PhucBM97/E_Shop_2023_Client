@@ -1,5 +1,5 @@
-import { Product } from "./Product";
-import { Size } from "./Size";
+import { Product } from "./Product.model";
+import { Size } from "./Size.model";
 
 export interface SizesSpecific {
     id: number;

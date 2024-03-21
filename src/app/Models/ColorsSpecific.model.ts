@@ -1,5 +1,5 @@
-import { Color } from "./Color";
-import { Product } from "./Product";
+import { Color } from "./Color.model";
+import { Product } from "./Product.model";
 
 export interface ColorsSpecific {
     id: number;

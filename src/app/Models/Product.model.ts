@@ -1,12 +1,12 @@
-import { Brand } from "./Brand";
-import { CartItem } from "./CartItem";
-import { Category } from "./Category";
-import { ColorsSpecific } from "./ColorsSpecific";
-import { Inventory } from "./Inventory";
-import { OrderDetail } from "./OrderDetail";
-import { Image } from "./Image";
-import { Promotion } from "./Promotion";
-import { SizesSpecific } from "./SizesSpecific";
+import { Brand } from "./Brand.model";
+import { CartItem } from "./CartItem.model";
+import { Category } from "./Category.model";
+import { ColorsSpecific } from "./ColorsSpecific.model";
+import { Inventory } from "./Inventory.model";
+import { OrderDetail } from "./OrderDetail.model";
+import { Image } from "./Image.model";
+import { Promotion } from "./Promotion.model";
+import { SizesSpecific } from "./SizesSpecific.model";
 
 
 export interface Product {

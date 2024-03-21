@@ -49,8 +49,13 @@ export class LoginComponent {
       .subscribe({
         next:(res) => {
           this.loginForm.reset();
-          this.auth.storeToken(res.token);
+          // store
+          this.auth.storeToken(res.accessToken);
+          this.auth.storeRefreshToken(res.refreshToken);
+          // get token vừa lưu -> giải mã -> trả về payload của token
           const tokenPayload = this.auth.decodedToken();
+          // dùng name, role của user gán vào 1 đối tượng Observable
+          // để subcriber nhận được name, role mỗi khi có thay đổi
           this.userStore.setFullNameForStore(tokenPayload.unique_name);
           this.userStore.setRoleForStore(tokenPayload.role);
           this.toast.success({detail: "SUCCESS", summary: res.message, duration: 3000});

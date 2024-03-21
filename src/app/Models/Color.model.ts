@@ -1,4 +1,4 @@
-import { ColorsSpecific } from "./ColorsSpecific";
+import { ColorsSpecific } from "./ColorsSpecific.model";
 
 export interface Color {
     colorId: number;

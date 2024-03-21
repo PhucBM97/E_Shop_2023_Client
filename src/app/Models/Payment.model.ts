@@ -1,4 +1,5 @@
-import { Order } from "./Order";
+import { Order } from "./Order.model";
+
 
 export interface Payment {
     paymentId: number;

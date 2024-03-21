@@ -1,5 +1,5 @@
-import { Order } from "./Order";
-import { Product } from "./Product";
+import { Order } from "./Order.model";
+import { Product } from "./Product.model";
 
 export interface OrderDetail {
     orderDetailId: number;

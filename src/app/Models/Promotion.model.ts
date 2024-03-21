@@ -1,4 +1,5 @@
-import { Product } from "./Product";
+import { Product } from "./Product.model";
+
 
 export interface Promotion {
     promotionId: number;

@@ -1,6 +1,6 @@
-import { Customer } from "./Customer";
-import { OrderDetail } from "./OrderDetail";
-import { Payment } from "./Payment";
+import { Customer } from "./Customer.model";
+import { OrderDetail } from "./OrderDetail.model";
+import { Payment } from "./Payment.model";
 
 export interface Order {
     orderId: number;

@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { subscribeOn } from 'rxjs';
-import { User } from 'src/app/Models/User';
+import { User } from 'src/app/Models/User.model';
 import { ApiService } from 'src/app/Services/api.service';
 import { AuthService } from 'src/app/Services/auth.service';
 import { UserStoreService } from 'src/app/Services/user-store.service';
