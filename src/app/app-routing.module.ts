@@ -7,6 +7,8 @@ import { ShopPageComponent } from './Components/shop-page/shop-page.component';
 import { FileuploadComponent } from './Components/fileupload/fileupload.component';
 import { LoginComponent } from './Components/login/login.component';
 import { SignupComponent } from './Components/signup/signup.component';
+import { authGuard } from './Guard/auth.guard';
+import { DashboardComponent } from './Components/dashboard/dashboard.component';
 
 const routes: Routes = [
   { 
@@ -15,7 +17,8 @@ const routes: Routes = [
   },
   { 
     path: 'home',
-    component: HomePageComponent
+    component: DashboardComponent,
+    canActivate: [authGuard]
   },
   {
     path: 'aaa',

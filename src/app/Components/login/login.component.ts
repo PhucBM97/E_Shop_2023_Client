@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import ValidateForm from 'src/app/Helpers/validateform';
 import { AuthService } from 'src/app/Services/auth.service';
+import { UserStoreService } from 'src/app/Services/user-store.service';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +23,8 @@ export class LoginComponent {
     private fb: FormBuilder,
     private auth: AuthService,
     private router: Router,
-    private toast: NgToastService
+    private toast: NgToastService,
+    private userStore : UserStoreService
     ) {}
 
   ngOnInit(): void{
@@ -43,10 +45,14 @@ export class LoginComponent {
   onLogin(){
     if(this.loginForm.valid){
       console.log(this.loginForm.value)
-      // thành công, gửi dữ liệu xuống server
       this.auth.login(this.loginForm.value)
       .subscribe({
         next:(res) => {
+          this.loginForm.reset();
+          this.auth.storeToken(res.token);
+          const tokenPayload = this.auth.decodedToken();
+          this.userStore.setFullNameForStore(tokenPayload.unique_name);
+          this.userStore.setRoleForStore(tokenPayload.role);
           this.toast.success({detail: "SUCCESS", summary: res.message, duration: 3000});
           this.router.navigate(['home'])
         },
