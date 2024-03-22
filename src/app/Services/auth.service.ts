@@ -11,7 +11,7 @@ import { TokenApiModel } from '../Models/token-api.model';
 })
 export class AuthService {
 
-  private baseUrl: string = `${environment.apiUrl}/User/`;
+  private baseUrl: string = `${environment.apiUrl}User/`;
   private userPayload: any;
   constructor(
     private http: HttpClient,

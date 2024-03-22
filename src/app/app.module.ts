@@ -20,6 +20,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgToastModule } from 'ng-angular-popup';
 import { DashboardComponent } from './Components/dashboard/dashboard.component';
 import { TokenInterceptor } from './Interceptors/token.interceptor';
+import { FormsModule } from '@angular/forms';
+import { ResetPasswordComponent } from './Components/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -37,13 +39,15 @@ import { TokenInterceptor } from './Interceptors/token.interceptor';
     LoginComponent,
     SignupComponent,
     DashboardComponent,
+    ResetPasswordComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    NgToastModule
+    NgToastModule,
+    FormsModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

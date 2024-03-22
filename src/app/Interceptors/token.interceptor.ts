@@ -11,7 +11,7 @@ import { AuthService } from '../Services/auth.service';
 import { NgToastService } from 'ng-angular-popup';
 import { Router } from '@angular/router';
 import { TokenApiModel } from '../Models/token-api.model';
-import { registerLocaleData } from '@angular/common';
+
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
@@ -35,13 +35,12 @@ export class TokenInterceptor implements HttpInterceptor {
       catchError((err) => {
         if(err instanceof HttpErrorResponse){
           if(err.status === 401){
-            // this.toast.warning({detail: "Warning", summary: "Token is expired, Please Login again"});
-            // this.router.navigate(['login'])
             return this.handleUnAuthorizedError(request, next);
-
+          } else if (err.status === 400){
+            return throwError(() => err?.error.message);
           }
         }
-        return throwError(() => new Error("Some other error occured"))
+        return throwError(() => new Error("Something Went Wrong"))
       })
     );
   }

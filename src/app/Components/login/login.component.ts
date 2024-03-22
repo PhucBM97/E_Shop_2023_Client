@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import ValidateForm from 'src/app/Helpers/validateform';
 import { AuthService } from 'src/app/Services/auth.service';
+import { ResetPasswordService } from 'src/app/Services/reset-password.service';
 import { UserStoreService } from 'src/app/Services/user-store.service';
 
 @Component({
@@ -18,13 +19,17 @@ export class LoginComponent {
   eyeIcon: string = "fa-eye-slash";
   loginForm!: FormGroup;
 
+  public resetPasswordEmail!: string;
+  public isValidEmail!: boolean;
+
 
   constructor(
     private fb: FormBuilder,
     private auth: AuthService,
     private router: Router,
     private toast: NgToastService,
-    private userStore : UserStoreService
+    private userStore : UserStoreService,
+    private resetService : ResetPasswordService
     ) {}
 
   ngOnInit(): void{
@@ -32,6 +37,7 @@ export class LoginComponent {
       username: ['', Validators.required],
       password: ['', Validators.required]
     })
+    
   }
 
 
@@ -59,7 +65,11 @@ export class LoginComponent {
           this.userStore.setFullNameForStore(tokenPayload.unique_name);
           this.userStore.setRoleForStore(tokenPayload.role);
           this.toast.success({detail: "SUCCESS", summary: res.message, duration: 3000});
-          this.router.navigate(['home'])
+          if(tokenPayload.role === 'Admin'){
+            this.router.navigate(['dashboard'])
+          } else {
+            this.router.navigate(['home'])
+          }
         },
         error:(err) => {
           this.toast.error({detail: "ERROR", summary: err?.error.message, duration:3000});
@@ -72,5 +82,40 @@ export class LoginComponent {
       // lỗi
     }
   }
+
+  checkValidEmail(event: string){
+    const value = event;
+    const pattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+    this.isValidEmail = pattern.test(value);
+    return this.isValidEmail;
+  }
+
+  confirmToSend(){
+    if(this.checkValidEmail(this.resetPasswordEmail)){
+      console.log(this.resetPasswordEmail);
+      this.resetService.sendResetPasswordLink(this.resetPasswordEmail)
+      .subscribe({
+        next: (res) => {
+          this.toast.success({
+            detail: "SUCCESS",
+            summary: "Email Sent, Please check your mailbox!",
+            duration: 3000
+          });
+
+          this.resetPasswordEmail = "";
+          const closeBtn = document.getElementById('closeBtn');
+          closeBtn?.click();
+        },
+        error: (err) => {
+          this.toast.error({
+            detail: "ERROR",
+            summary: "Something went wrong!",
+            duration: 3000
+          });
+        }
+      })
+    }
+  }
+
 
 }

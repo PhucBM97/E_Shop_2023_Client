@@ -8,7 +8,7 @@ import { User } from '../Models/User.model';
 })
 export class ApiService {
 
-  private baseUrl: string = `${environment.apiUrl}/User`;
+  private baseUrl: string = `${environment.apiUrl}User`;
 
   constructor(private http: HttpClient) { }
   getUsers(){

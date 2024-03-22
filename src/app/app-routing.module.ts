@@ -9,6 +9,8 @@ import { LoginComponent } from './Components/login/login.component';
 import { SignupComponent } from './Components/signup/signup.component';
 import { authGuard } from './Guard/auth.guard';
 import { DashboardComponent } from './Components/dashboard/dashboard.component';
+import { ResetPasswordComponent } from './Components/reset-password/reset-password.component';
+import { adminGuard } from './Guard/admin.guard';
 
 const routes: Routes = [
   { 
@@ -17,8 +19,13 @@ const routes: Routes = [
   },
   { 
     path: 'home',
-    component: DashboardComponent,
+    component: HomePageComponent,
     canActivate: [authGuard]
+  },
+  { 
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [adminGuard]
   },
   {
     path: 'aaa',
@@ -39,6 +46,10 @@ const routes: Routes = [
   {
     path: 'signup',
     component: SignupComponent
+  },
+  {
+    path: 'reset',
+    component: ResetPasswordComponent
   },
 
 
