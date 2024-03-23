@@ -72,7 +72,7 @@ export class LoginComponent {
           }
         },
         error:(err) => {
-          this.toast.error({detail: "ERROR", summary: err?.error.message, duration:3000});
+          this.toast.error({detail: "ERROR", summary: err, duration:3000});
         },
       })
     } else {

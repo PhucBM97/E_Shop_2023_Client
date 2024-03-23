@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 import { User } from '../Models/User.model';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import {JwtHelperService} from '@auth0/angular-jwt'
 import { TokenApiModel } from '../Models/token-api.model';
 
@@ -51,6 +51,11 @@ export class AuthService {
 
   isLoggedIn(): boolean{
     return !!localStorage.getItem('token')
+  }
+
+  isAdmin(): boolean {
+    let roleFromToken = this.decodedToken()
+    return roleFromToken.role === 'Admin'
   }
 
   decodedToken(){

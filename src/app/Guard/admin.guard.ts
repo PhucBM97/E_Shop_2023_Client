@@ -4,7 +4,8 @@ import { inject } from '@angular/core';
 import { NgToastService } from 'ng-angular-popup';
 
 export const adminGuard: CanActivateFn = (route, state) => {
-  if(inject(AuthService).getRoleFromToken() === 'Admin')
+  
+  if(inject(AuthService).isAdmin())
   return true;
 else {
   inject(NgToastService).error({detail: "ERROR", summary: "You don't have permission to access"});
