@@ -3,25 +3,29 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomePageComponent } from './Components/home-page/home-page.component';
+import { HomePageComponent } from './Components/Pages/home-page/home-page.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { ErrPageComponent } from './Components/err-page/err-page.component';
+import { ErrPageComponent } from './Components/Pages/err-page/err-page.component';
 import { ListProductsComponent } from './Components/list-products/list-products.component';
-import { ShopPageComponent } from './Components/shop-page/shop-page.component';
-import { LayoutComponent } from './Components/layout/layout.component';
-import { HeaderComponent } from './Components/header/header.component';
-import { FooterComponent } from './Components/footer/footer.component';
+import { ShopPageComponent } from './Components/Pages/shop-page/shop-page.component';
+import { HeaderComponent } from './Components/Layouts/header/header.component';
+import { FooterComponent } from './Components/Layouts/footer/footer.component';
 import { LoaderSpinnerComponent } from './Components/loader-spinner/loader-spinner.component';
-import { ProductDetailComponent } from './Components/product-detail/product-detail.component';
+import { ProductDetailComponent } from './Components/Pages/product-detail/product-detail.component';
 import { FileuploadComponent } from './Components/fileupload/fileupload.component';
-import { LoginComponent } from './Components/login/login.component';
-import { SignupComponent } from './Components/signup/signup.component';
+import { LoginComponent } from './Components/Auth/login/login.component';
+import { SignupComponent } from './Components/Auth/signup/signup.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgToastModule } from 'ng-angular-popup';
-import { DashboardComponent } from './Components/dashboard/dashboard.component';
+import { DashboardComponent } from './Components/Pages/dashboard/dashboard.component';
 import { TokenInterceptor } from './Interceptors/token.interceptor';
 import { FormsModule } from '@angular/forms';
-import { ResetPasswordComponent } from './Components/reset-password/reset-password.component';
+import { ResetPasswordComponent } from './Components/Auth/reset-password/reset-password.component';
+import { AdidasComponent } from './Components/Pages/adidas/adidas.component';
+import { NikeComponent } from './Components/Pages/nike/nike.component';
+import { NewBalanceComponent } from './Components/Pages/new-balance/new-balance.component';
+import { ConverseComponent } from './Components/Pages/converse/converse.component';
+import { PumaComponent } from './Components/Pages/puma/puma.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,6 @@ import { ResetPasswordComponent } from './Components/reset-password/reset-passwo
     ErrPageComponent,
     ListProductsComponent,
     ShopPageComponent,
-    LayoutComponent,
     HeaderComponent,
     FooterComponent,
     LoaderSpinnerComponent,
@@ -40,6 +43,11 @@ import { ResetPasswordComponent } from './Components/reset-password/reset-passwo
     SignupComponent,
     DashboardComponent,
     ResetPasswordComponent,
+    AdidasComponent,
+    NikeComponent,
+    NewBalanceComponent,
+    ConverseComponent,
+    PumaComponent,
   ],
   imports: [
     BrowserModule,
