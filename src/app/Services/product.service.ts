@@ -34,4 +34,8 @@ export class ProductService {
   getAll(): Observable<any>{
     return this.http.get(`${environment.apiUrl}${this.url}/GetProductList`);
   }
+
+  getProduct(id: number): Observable<any>{
+    return this.http.get(`${environment.apiUrl}${this.url}/GetProductById/${id}`);
+  }
 }

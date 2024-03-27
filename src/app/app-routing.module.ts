@@ -79,7 +79,7 @@ const routes: Routes = [
     component: ResetPasswordComponent
   },
   {
-    path: 'detail',
+    path: 'shop/:id',
     component: ProductDetailComponent
   },
 
