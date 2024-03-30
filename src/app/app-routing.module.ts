@@ -16,6 +16,7 @@ import { ConverseComponent } from './Components/Pages/converse/converse.componen
 import { PumaComponent } from './Components/Pages/puma/puma.component';
 import { ListProductsComponent } from './Components/list-products/list-products.component';
 import { ProductDetailComponent } from './Components/Pages/product-detail/product-detail.component';
+import { CartComponent } from './Components/Pages/cart/cart.component';
 
 const routes: Routes = [
 
@@ -81,6 +82,10 @@ const routes: Routes = [
   {
     path: 'shop/:id',
     component: ProductDetailComponent
+  },
+  {
+    path: 'cart',
+    component: CartComponent
   },
 
 

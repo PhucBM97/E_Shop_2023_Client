@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Product } from 'src/app/Models/Product.model';
 import { ProductService } from 'src/app/Services/product.service';
 import { map } from 'rxjs';
+import { ProductDetailDTO } from 'src/app/Models/ProductDetail.model';
 
 @Component({
   selector: 'app-puma',
@@ -10,7 +11,7 @@ import { map } from 'rxjs';
 })
 export class PumaComponent {
 
-  products: Product[] = [];
+  products: ProductDetailDTO[] = [];
   selectedValue : string = "";
 
   constructor(
@@ -55,7 +56,7 @@ export class PumaComponent {
 
   getAllData(){
     this.productService.getAll()
-    .pipe(map(pros => pros.filter((pro: Product) => pro.brand?.brandName === 'Adidas')))
+    .pipe(map(pros => pros.filter((pro: ProductDetailDTO) => pro.productBrand === 'Puma')))
       .subscribe({
         next: (res) => { 
           this.products = res;
@@ -67,11 +68,11 @@ export class PumaComponent {
       })
   }
   getDataAsc(){
-    this.products = this.products.sort((a: any,b: any) => a.price - b.price)
+    this.products = this.products.sort((a: any,b: any) => a.productPrice - b.productPrice)
   }
 
   getDataDesc(){
-    this.products = this.products.sort((a: any,b: any) => b.price - a.price)
+    this.products = this.products.sort((a: any,b: any) => b.productPrice - a.productPrice)
 
   }
 }

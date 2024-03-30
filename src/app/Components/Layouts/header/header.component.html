@@ -1,5 +1,5 @@
         <!-- Offcanvas Menu Begin -->
-        <div class="offcanvas-menu-overlay"></div>
+        <!-- <div class="offcanvas-menu-overlay"></div>
         <div class="offcanvas-menu-wrapper">
             <div class="offcanvas__option">
                 <div class="offcanvas__links">
@@ -25,7 +25,7 @@
             <div class="offcanvas__text">
                 <p>Free shipping, 30-day return or refund guarantee.</p>
             </div>
-        </div>
+        </div> -->
         <!-- Offcanvas Menu End -->
 
     <!-- Header Section Begin -->
@@ -90,8 +90,8 @@
                     <div class="header__nav__option">
                         <a href="#" class="search-switch"><img src="./assets/img/icon/search.png" alt=""></a>
                         <a href="#"><img src="./assets/img/icon/heart.png" alt=""></a>
-                        <a href="#"><img src="./assets/img/icon/cart.png" alt=""> <span>0</span></a>
-                        <div class="price">$0.00</div>
+                        <a href="#"><img src="./assets/img/icon/cart.png" alt=""> <span *ngIf="countCart" class="badge badge-danger" style="border-radius: 25px;position: absolute;top: 15px;color: white;">{{countCart}}</span></a>
+                        <!-- <div class="price">$0.00</div> -->
                     </div>
                 </div>
             </div>

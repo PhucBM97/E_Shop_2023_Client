@@ -26,6 +26,7 @@ import { NikeComponent } from './Components/Pages/nike/nike.component';
 import { NewBalanceComponent } from './Components/Pages/new-balance/new-balance.component';
 import { ConverseComponent } from './Components/Pages/converse/converse.component';
 import { PumaComponent } from './Components/Pages/puma/puma.component';
+import { CartComponent } from './Components/Pages/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { PumaComponent } from './Components/Pages/puma/puma.component';
     NewBalanceComponent,
     ConverseComponent,
     PumaComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,

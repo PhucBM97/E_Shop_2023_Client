@@ -3,6 +3,7 @@ import { map, BehaviorSubject } from 'rxjs';
 import { Product } from 'src/app/Models/Product.model';
 import { ProductService } from 'src/app/Services/product.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ProductDetailDTO } from 'src/app/Models/ProductDetail.model';
 
 @Component({
   selector: 'app-shop-page',
@@ -11,7 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ShopPageComponent {
 
-  products: Product[] = [];
+  products: ProductDetailDTO[] = [];
   selectedValue : string = "";
 
   constructor(
@@ -69,11 +70,11 @@ export class ShopPageComponent {
       })
   }
   getDataAsc(){
-    this.products = this.products.sort((a: any,b: any) => a.price - b.price)
+    this.products = this.products.sort((a: any,b: any) => a.productPrice - b.productPrice)
   }
 
   getDataDesc(){
-    this.products = this.products.sort((a: any,b: any) => b.price - a.price)
+    this.products = this.products.sort((a: any,b: any) => b.productPrice - a.productPrice)
 
   }
 

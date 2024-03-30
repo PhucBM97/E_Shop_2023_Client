@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Product } from 'src/app/Models/Product.model';
+import { ProductDetailDTO } from 'src/app/Models/ProductDetail.model';
 import { ProductService } from 'src/app/Services/product.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { ProductService } from 'src/app/Services/product.service';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent {
-  products : Product[] = [];
+  products : ProductDetailDTO[] = [];
   constructor(private productService: ProductService){}
 
   ngOnInit(){

@@ -4,7 +4,7 @@
   Author: Colorib
   Author URI: https://www.colorib.com/
   Version: 1.0
-  Created: Colorib 
+  Created: Colorib
 ******************************************************************/
 
 /*------------------------------------------------------------------
@@ -964,8 +964,9 @@ ol {
 	visibility: visible;
 }
 
+/* ------ */
 .product__item:hover .product__item__text h6 {
-	opacity: 0;
+	opacity: 1;
 }
 
 .product__item:hover .product__item__text .product__color__select {
@@ -1126,7 +1127,6 @@ ol {
 .product__item__text .product__color__select label.active:after {
 	opacity: 1;
 }
-
 .product__item__text .product__color__select label:after {
 	position: absolute;
 	left: -3px;
@@ -1138,6 +1138,7 @@ ol {
 	border-radius: 50%;
 	opacity: 0;
 }
+
 
 .product__item__text .product__color__select label input {
 	position: absolute;

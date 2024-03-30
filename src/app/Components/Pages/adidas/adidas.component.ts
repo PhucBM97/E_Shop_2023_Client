@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { filter,map } from 'rxjs';
 import { Product } from 'src/app/Models/Product.model';
+import { ProductDetailDTO } from 'src/app/Models/ProductDetail.model';
 import { ProductService } from 'src/app/Services/product.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { ProductService } from 'src/app/Services/product.service';
 })
 export class AdidasComponent {
 
-  products: Product[] = [];
+  products: ProductDetailDTO[] = [];
   selectedValue : string = "";
 
   constructor(
@@ -55,7 +56,7 @@ export class AdidasComponent {
 
   getAllData(){
     this.productService.getAll()
-    .pipe(map(pros => pros.filter((pro: Product) => pro.brand?.brandName === 'Adidas')))
+    .pipe(map(pros => pros.filter((pro: ProductDetailDTO) => pro.productBrand === 'Adidas')))
       .subscribe({
         next: (res) => { 
           this.products = res;
@@ -67,11 +68,11 @@ export class AdidasComponent {
       })
   }
   getDataAsc(){
-    this.products = this.products.sort((a: any,b: any) => a.price - b.price)
+    this.products = this.products.sort((a: any,b: any) => a.productPrice - b.productPrice)
   }
 
   getDataDesc(){
-    this.products = this.products.sort((a: any,b: any) => b.price - a.price)
+    this.products = this.products.sort((a: any,b: any) => b.productPrice - a.productPrice)
 
   }
 }
