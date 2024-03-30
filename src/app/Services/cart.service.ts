@@ -32,8 +32,11 @@ export class CartService {
     let products = JSON.stringify(this.cookie.get('productList'));
     return products;
   }
+  setCart(cartItems: any){
+    const expires = new Date(Date.now() + (4 * 60 * 60 * 1000));
+    this.cookie.set('product', JSON.stringify(cartItems),expires);
+  }
   setProducts(product: Item){
-    
     this.cookie.set('productList', JSON.stringify(product));
   }
 }

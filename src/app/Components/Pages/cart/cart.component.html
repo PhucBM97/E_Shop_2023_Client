@@ -35,25 +35,28 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let info of productCart">
+                                <tr *ngFor="let info of productCart; index as i">
                                     <td class="product__cart__item">
                                         <div class="product__cart__item__pic">
                                             <img src="{{info.productImage}}" alt="">
                                         </div>
                                         <div class="product__cart__item__text">
                                             <h6>{{info.productName}}</h6>
+                                            <h6>indexxxxx {{i}}</h6>
                                             <h5>{{info.productPrice | currency:'VND':'symbol':'1.0-0'}}</h5>
                                         </div>
                                     </td>
                                     <td class="quantity__item">
                                         <div class="quantity">
-                                            <div class="pro-qty-2">
+                                            <div class="pro-qty-2" style="display: flex;">
+                                                <button (click)="dec(info)" class="btn btn-danger">-</button>
                                                 <input type="text" value="{{info.productQuantity}}">
+                                                <button (click)="inc(info)" class="btn btn-success">+</button>
                                             </div>
                                         </div>
                                     </td>
                                     <td class="cart__price">{{(info.productPrice * info.productQuantity) | currency:'VND':'symbol':'1.0-0'}}</td>
-                                    <td class="cart__close"><i class="fa fa-close"></i></td>
+                                    <td class="cart__close"><button class="btn" (click)="remove(i)"><i class="fa fa-close"></i></button></td>
                                 </tr>
                                 <!-- <tr>
                                     <td class="product__cart__item">
@@ -142,8 +145,8 @@
                     <div class="cart__total">
                         <h6>Cart total</h6>
                         <ul>
-                            <li>Subtotal <span>$ 169.50</span></li>
-                            <li>Total <span>$ 169.50</span></li>
+                            <li>Subtotal <span>{{totalPrice | currency:'VND':'symbol':'1.0-0' }}</span></li>
+                            <li>Total <span>{{totalPrice | currency:'VND':'symbol':'1.0-0' }}</span></li>
                         </ul>
                         <a href="#" class="primary-btn">Proceed to checkout</a>
                     </div>
