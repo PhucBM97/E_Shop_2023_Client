@@ -17,6 +17,7 @@ import { PumaComponent } from './Components/Pages/puma/puma.component';
 import { ListProductsComponent } from './Components/list-products/list-products.component';
 import { ProductDetailComponent } from './Components/Pages/product-detail/product-detail.component';
 import { CartComponent } from './Components/Pages/cart/cart.component';
+import { CheckoutsComponent } from './Components/Pages/checkouts/checkouts.component';
 
 const routes: Routes = [
 
@@ -86,6 +87,10 @@ const routes: Routes = [
   {
     path: 'cart',
     component: CartComponent
+  },
+  {
+    path: 'checkouts',
+    component: CheckoutsComponent
   },
 
 

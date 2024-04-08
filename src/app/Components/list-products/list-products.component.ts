@@ -63,7 +63,7 @@ export class ListProductsComponent {
     this.toast.success({
       detail: "SUCCESS",
       summary: "Đã thêm vào giỏ hàng",
-      duration: 3000
+      duration: 1000
     })
   }
   

@@ -27,6 +27,7 @@ import { NewBalanceComponent } from './Components/Pages/new-balance/new-balance.
 import { ConverseComponent } from './Components/Pages/converse/converse.component';
 import { PumaComponent } from './Components/Pages/puma/puma.component';
 import { CartComponent } from './Components/Pages/cart/cart.component';
+import { CheckoutsComponent } from './Components/Pages/checkouts/checkouts.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { CartComponent } from './Components/Pages/cart/cart.component';
     ConverseComponent,
     PumaComponent,
     CartComponent,
+    CheckoutsComponent,
   ],
   imports: [
     BrowserModule,

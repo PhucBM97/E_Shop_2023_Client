@@ -1,0 +1,41 @@
+@import url('/src/assets/css/style.css');
+@import url('/src/assets/css/elegant-icons.css');
+@import url('/src/assets/css/font-awesome.min.css');
+@import url('/src/assets/css/magnific-popup.css');
+@import url('/src/assets/css/nice-select.css');
+@import url('/src/assets/css/owl.carousel.min.css');
+@import url('/src/assets/css/slicknav.min.css');
+@import url('/src/assets/css/bootstrap.min.css');
+* {
+    font-family: "Nunito Sans", sans-serif;
+}
+
+fieldset {margin:0;padding:0;border: 1px solid gray}
+
+.radio-inp{
+    height: 20px;
+    width: 20px;
+}
+.radio-lb{
+    padding-left: 10px;
+    font-weight: 500;
+}
+
+img{
+    height: 100px;
+    width: 100px;
+    border: 1px solid #ccc;
+}
+.number {
+    font-size: 0.85714em;
+    font-weight: 500;
+    white-space: nowrap;
+    padding: 0.15em 0.65em;
+    border-radius: 2em;
+    background-color: rgba(153, 153, 153, 0.9);
+    color: #fff;
+    position: absolute;
+    left: 110px;
+    top: 10px;
+    z-index: 2;
+}

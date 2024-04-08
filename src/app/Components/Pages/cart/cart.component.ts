@@ -25,11 +25,14 @@ export class CartComponent {
 
   getProductFromCookie(){
     this.productCart = JSON.parse(this.cookie.get('product'));
-    let total = 0; 
+    let total = 0;
+    let count = 0;
     this.productCart.map(value => {
       total += (value.productPrice * value.productQuantity);
+      count++;
     })
     this.totalPrice = total;
+    return count;
     console.log(total, 'totalllllllll');
     
   }
@@ -63,7 +66,7 @@ export class CartComponent {
     let data = this.productCart.splice(index,1);
         
     this.cart.setCart(this.productCart);
-    this.getProductFromCookie();
+    this.cart.setNumberOfItems(this.getProductFromCookie());
     
   }
 }

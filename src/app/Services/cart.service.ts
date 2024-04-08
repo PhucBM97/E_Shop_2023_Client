@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Cart } from '../Models/Cart.model';
 import { BehaviorSubject } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 import { Item } from '../Models/Item.model';
