@@ -49,13 +49,15 @@ export class HeaderComponent {
   }
 
   getCount(){
-    let data = JSON.parse(this.cookie.get('product'));
+    let data = JSON.parse(this.cart.getCart());
 
-    let count : number = 0;
-    data.map(() => {
-        count++;
-    })
-    this.countCart = count;
+    if(data.length > 0){
+      let count : number = 0;
+      data.map(() => {
+          count++;
+      })
+      this.countCart = count;
+    }
     console.log(this.countCart, ' counttttttttttttttt');
   }
 }

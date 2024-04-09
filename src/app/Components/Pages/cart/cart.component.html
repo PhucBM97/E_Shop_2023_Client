@@ -20,7 +20,7 @@
     <!-- Breadcrumb Section End -->
 
     <!-- Shopping Cart Section Begin -->
-    <section class="shopping-cart spad">
+    <section class="shopping-cart spad" *ngIf="productCart.length > 0; else nothing_product">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
@@ -155,5 +155,13 @@
         </div>
     </section>
     <!-- Shopping Cart Section End -->
+
+
+
+
+
+    <ng-template #nothing_product>
+        <h6>Chưa có sản phẩm nào</h6>
+    </ng-template>
 
 
