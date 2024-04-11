@@ -10,7 +10,7 @@ import { SizesSpecific } from "./SizesSpecific.model";
 
 
 export interface Product {
-    productId: number;
+    productID: number;
     promotionId: number | null;
     categoryId: number | null;
     brandId: number | null;

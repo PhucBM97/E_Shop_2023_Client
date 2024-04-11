@@ -11,10 +11,18 @@ export class ProductService {
   private url = 'Product';
 
   private filter$ = new BehaviorSubject<string>('');
+  private paramUrl$ = new BehaviorSubject<number>(0);
   private commonData$ = new BehaviorSubject<Product[]>([]);
   constructor(private http: HttpClient) { }
 
 
+  getParamUrl(){
+    return this.paramUrl$.asObservable();
+  }
+
+  setParamUrl(id: number){
+    this.paramUrl$.next(id);
+  }
   getCommonData(){
     return this.commonData$.asObservable();
   }

@@ -7,6 +7,7 @@ import { Item } from './../../Models/Item.model';
 import { ProductDetailDTO } from 'src/app/Models/ProductDetail.model';
 import { Category } from './../../Models/Category.model';
 import { NgToastService } from 'ng-angular-popup';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-products',
@@ -22,14 +23,15 @@ export class ListProductsComponent {
     private productService: ProductService,
     private cookie: CookieService,
     private cart: CartService,
-    private toast: NgToastService
+    private toast: NgToastService,
+    private router : Router
     ){}
 
   @Input() products : ProductDetailDTO[] = [];
   
 
 
-  addToCart(Category: ProductDetailDTO){
+  addToCart(Category: ProductDetailDTO, redirect?: boolean){
     let hasCookie = this.cookie.check('product');
     if(!hasCookie) {
       this.listProduct.push(Category);
@@ -59,12 +61,14 @@ export class ListProductsComponent {
     console.log(count, ' counttttttttttttttt');
 
     this.cookie.set('product', JSON.stringify(this.listProduct));
-    
-    this.toast.success({
-      detail: "SUCCESS",
-      summary: "Đã thêm vào giỏ hàng",
-      duration: 1000
-    })
+    if(redirect)
+      this.router.navigate(['checkouts']);
+    else
+      this.toast.success({
+        detail: "SUCCESS",
+        summary: "Đã thêm vào giỏ hàng",
+        duration: 1000
+      })
   }
   
 }

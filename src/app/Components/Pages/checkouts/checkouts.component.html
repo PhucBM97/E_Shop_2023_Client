@@ -5,27 +5,26 @@
             <h6>Thông tin giao hàng</h6>
             <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
                 <div class="form-group">
-                    <input class="form-control mb-3" type="text" value="" placeholder="Họ và tên" formControlName="fullname">
-                    <small *ngIf="orderForm.controls['fullname'].dirty && orderForm.hasError('required', 'fullname')" class="text-danger">*Name is required</small>
+                    <input class="form-control mb-3" type="text" value="" placeholder="Họ và tên" formControlName="customerName">
+                    <small *ngIf="orderForm.controls['customerName'].dirty && orderForm.hasError('required', 'customerName')" class="text-danger">*Name is required</small>
                     <div class="d-flex">
-                        <input class="form-control" type="text" value="" placeholder="Email" formControlName="email">
-                        <input class="form-control" type="number" value="" placeholder="Số điện thoại" formControlName="phone">
+                        <input class="form-control" type="text" value="" placeholder="Email" formControlName="customerEmail">
+                        <input class="form-control" type="number" value="" placeholder="Số điện thoại" formControlName="customerPhone">
                     </div>
-                    <small *ngIf="orderForm.controls['email'].dirty && orderForm.hasError('required', 'email')" class="text-danger">*Email is required</small> <br>
-                    <small *ngIf="orderForm.controls['phone'].dirty && orderForm.hasError('required', 'phone')" class="text-danger">*Phone is required</small>
+                    <small *ngIf="orderForm.controls['customerEmail'].dirty && orderForm.hasError('required', 'customerEmail')" class="text-danger">*Email is required</small> <br>
+                    <small *ngIf="orderForm.controls['customerPhone'].dirty && orderForm.hasError('required', 'customerPhone')" class="text-danger">*Phone is required</small>
                 </div>
                 <div class="form-group mt-3">
                     <fieldset class="border rounded-3 p-3">
-                        <input class="radio-inp" checked type="radio" id="home" name="delivery" value="home"
+                        <input formControlName="orderDelivery" class="radio-inp" checked type="radio" id="home" value="home" name="orderDelivery"
                         (change)="isChecked($event)"
                         >
                         <label class="radio-lb"  for="home">Giao hàng tận nơi</label><br>
-                            <input *ngIf="isDeliveryHome" class="form-control mt-2" type="text" placeholder="Địa chỉ">
+                            <input formControlName="customerAddress" *ngIf="isDeliveryHome" class="form-control mt-2" type="text" placeholder="Địa chỉ">
                         <hr>
-                        <input class="radio-inp" type="radio" id="store" name="delivery" value="store"
+                        <input formControlName="orderDelivery"  class="radio-inp" type="radio" id="store"  value="store" name="orderDelivery"
                         (change)="isChecked($event)">
                         <label class="radio-lb" for="store">Nhận tại cửa hàng</label><br>
-
                         <div *ngIf="!isDeliveryHome">
                             <b>TPHCM:</b> 123 Phan Huy Ích, Gò Vấp, TP.HCM
                         </div>
@@ -72,14 +71,14 @@
                     <span>tạm tính</span>
                     <span>{{totalPrice | currency:'VND':'symbol':'1.0-0'}}</span>
                 </div>
-                <div class="d-flex justify-content-between">
+                <!-- <div class="d-flex justify-content-between">
                     <span>Phí ship</span>
                     <span>{{shippingFee | currency:'VND':'symbol':'1.0-0'}}</span>
-                </div>
+                </div> -->
                 <hr>
                 <div class="d-flex justify-content-between">
                     <h6>Tổng cộng: </h6>
-                    <span>{{(totalPrice + shippingFee) | currency:'VND':'symbol':'1.0-0'}}</span>
+                    <span>{{totalPrice | currency:'VND':'symbol':'1.0-0'}}</span>
                 </div>
             </div>
         </div>

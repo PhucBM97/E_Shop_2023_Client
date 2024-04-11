@@ -37,8 +37,10 @@
                         </div>
                     </div>
                 </a>
-                <button (click)="addToCart(product)" class="btn btn-danger"> <i class="fa-solid fa-cart-shopping"></i> Add To Cart</button>
-
+                <div>
+                    <button (click)="addToCart(product, true)" class="btn btn-success"> <i class="fa-solid fa-credit-card"></i> Mua ngay</button>
+                    <button (click)="addToCart(product)" class="btn btn-danger"> <i class="fa-solid fa-cart-shopping"></i> Add To Cart</button>
+                </div>
 
             </div>
 

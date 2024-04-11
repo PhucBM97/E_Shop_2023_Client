@@ -49,8 +49,8 @@ export class HeaderComponent {
   }
 
   getCount(){
-    let data = JSON.parse(this.cart.getCart());
-
+    let data = JSON.parse(this.cookie.get('product'));
+    // subcriber
     if(data.length > 0){
       let count : number = 0;
       data.map(() => {

@@ -84,41 +84,48 @@
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-8">
                         <div class="product__details__text">
-                            <h4>Hooded thermal anorak</h4>
+                            <h4>{{productDetail.productName}}</h4>
                             <div class="rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
-                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star"></i>
                                 <span> - 5 Reviews</span>
                             </div>
-                            <h3>$270.00 <span>70.00</span></h3>
-                            <p>Coat with quilted lining and an adjustable hood. Featuring long sleeves with adjustable
-                                cuff tabs, adjustable asymmetric hem with elastic side tabs and a front zip fastening
-                            with placket.</p>
+                            <h3>{{productDetail.price | currency:'VND':'symbol':'1.0-0'}}<span>{{100000000 | currency:'VND':'symbol':'1.0-0'}}</span></h3>
+                            <p>{{productDetail.description}}</p>
                             <div class="product__details__option">
                                 <div class="product__details__option__size">
                                     <span>Size:</span>
-                                    <label for="xxl">xxl
-                                        <input type="radio" id="xxl">
+                                    <select name="" id="">
+                                        <option value="">36</option>
+                                        <option value="">37</option>
+                                        <option value="">38</option>
+                                    </select>
+                                    <!-- <label for="xxl">xxl
+                                        <input type="radio" id="xxl" name="size" (click)="thaydoi($event)" value="1">
                                     </label>
-                                    <label class="active" for="xl">xl
-                                        <input type="radio" id="xl">
+                                    <label [class.active]="true" for="xl">xl
+                                        <input type="radio" id="xl" name="size" (click)="thaydoi($event)" value="2">
                                     </label>
-                                    <label for="l">l
-                                        <input type="radio" id="l">
+                                    <label class="active" for="l">l
+                                        <input type="radio" id="l" name="size" (click)="thaydoi($event)" value="3">
                                     </label>
                                     <label for="sm">s
-                                        <input type="radio" id="sm">
-                                    </label>
+                                        <input type="radio" id="sm" name="size" (click)="thaydoi($event)" value="4">
+                                    </label> -->
                                 </div>
                                 <div class="product__details__option__color">
                                     <span>Color:</span>
-                                    <label class="c-1" for="sp-1">
-                                        <input type="radio" id="sp-1">
-                                    </label>
-                                    <label class="c-2" for="sp-2">
+                                    <ng-container *ngFor="let color of productColor">
+                                        <a routerLink="/shop/{{color.productID}}">
+                                            <label class="c-1" for="sp-1">
+                                                <input type="radio" id="sp-1">
+                                            </label>
+                                        </a>
+                                    </ng-container>
+                                    <!-- <label class="c-2" for="sp-2">
                                         <input type="radio" id="sp-2">
                                     </label>
                                     <label class="c-3" for="sp-3">
@@ -129,13 +136,13 @@
                                     </label>
                                     <label class="c-9" for="sp-9">
                                         <input type="radio" id="sp-9">
-                                    </label>
+                                    </label> -->
                                 </div>
                             </div>
                             <div class="product__details__cart__option">
                                 <div class="quantity">
                                     <div class="pro-qty">
-                                        <input type="text" value="1">
+                                        <input type="number" value="1">
                                     </div>
                                 </div>
                                 <a href="#" class="primary-btn">add to cart</a>
@@ -144,7 +151,7 @@
                                 <a href="#"><i class="fa fa-heart"></i> add to wishlist</a>
                                 <a href="#"><i class="fa fa-exchange"></i> Add To Compare</a>
                             </div>
-                            <div class="product__details__last__option">
+                            <!-- <div class="product__details__last__option">
                                 <h5><span>Guaranteed Safe Checkout</span></h5>
                                 <img src="img/shop-details/details-payment.png" alt="">
                                 <ul>
@@ -152,7 +159,7 @@
                                     <li><span>Categories:</span> Clothes</li>
                                     <li><span>Tag:</span> Clothes, Skin, Body</li>
                                 </ul>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
