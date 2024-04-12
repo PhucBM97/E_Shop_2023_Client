@@ -28,30 +28,39 @@ import { ConverseComponent } from './Components/Pages/converse/converse.componen
 import { PumaComponent } from './Components/Pages/puma/puma.component';
 import { CartComponent } from './Components/Pages/cart/cart.component';
 import { CheckoutsComponent } from './Components/Pages/checkouts/checkouts.component';
+import { OrdersComponent } from './Components/Pages/orders/orders.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
+
+
+const pageComponents = [
+  HomePageComponent,
+  ErrPageComponent,
+  ListProductsComponent,
+  ShopPageComponent,
+  HeaderComponent,
+  FooterComponent,
+  LoaderSpinnerComponent,
+  ProductDetailComponent,
+  FileuploadComponent,
+  LoginComponent,
+  SignupComponent,
+  DashboardComponent,
+  ResetPasswordComponent,
+  AdidasComponent,
+  NikeComponent,
+  NewBalanceComponent,
+  ConverseComponent,
+  PumaComponent,
+  CartComponent,
+  CheckoutsComponent,
+  OrdersComponent,
+]
 @NgModule({
   declarations: [
     AppComponent,
-    HomePageComponent,
-    ErrPageComponent,
-    ListProductsComponent,
-    ShopPageComponent,
-    HeaderComponent,
-    FooterComponent,
-    LoaderSpinnerComponent,
-    ProductDetailComponent,
-    FileuploadComponent,
-    LoginComponent,
-    SignupComponent,
-    DashboardComponent,
-    ResetPasswordComponent,
-    AdidasComponent,
-    NikeComponent,
-    NewBalanceComponent,
-    ConverseComponent,
-    PumaComponent,
-    CartComponent,
-    CheckoutsComponent,
+    pageComponents,
+
   ],
   imports: [
     BrowserModule,
@@ -59,7 +68,8 @@ import { CheckoutsComponent } from './Components/Pages/checkouts/checkouts.compo
     HttpClientModule,
     ReactiveFormsModule,
     NgToastModule,
-    FormsModule
+    FormsModule,
+    NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' })
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

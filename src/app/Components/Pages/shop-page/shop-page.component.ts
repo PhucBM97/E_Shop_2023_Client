@@ -4,6 +4,7 @@ import { Product } from 'src/app/Models/Product.model';
 import { ProductService } from 'src/app/Services/product.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductDetailDTO } from 'src/app/Models/ProductDetail.model';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-shop-page',
@@ -14,10 +15,13 @@ export class ShopPageComponent {
 
   products: ProductDetailDTO[] = [];
   selectedValue : string = "";
+  isLoaded: boolean = false;
 
   constructor(
     private productService: ProductService,
-    private route: ActivatedRoute, private router: Router
+    private route: ActivatedRoute, 
+    private router: Router,
+    private spinner: NgxSpinnerService
   ) {}
   
   ngOnInit(){

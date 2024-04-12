@@ -1,5 +1,5 @@
 <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" style="background-color: #111111 !important;">
-    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="#">Hello <h3 style="color: white;">{{fullName}}</h3></a>
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="#">Hello <h3 style="color: white;"></h3></a>
     <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -9,7 +9,7 @@
             <a style="background: red;
             color: #fff;
             border-radius: 4px;
-            margin: 10px;" class="nav-link px-3 cursor-pointer" (click)="logout()">Sign out</a>
+            margin: 10px;" class="nav-link px-3 cursor-pointer">Sign out</a>
         </div>
     </div>
   </header>
@@ -26,7 +26,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="/dashboard/orders">
+                        <a class="nav-link" href="#">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file align-text-bottom" aria-hidden="true"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>                            Orders
                         </a>
                     </li>
@@ -107,17 +107,12 @@
                 </div>
             </div>
   
-            <h2>Employee List</h2><br>
-              <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Thêm User
-  </button>
+            <!-- <h2>Employee List</h2><br>
             <div class="table-responsive">
                 <table class="table table-striped table-sm">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">UserID</th>
                             <th scope="col">Firstname</th>
                             <th scope="col">Lastname</th>
                             <th scope="col">Username</th>
@@ -127,93 +122,15 @@
                     <tbody>
                         <tr *ngFor="let user of users; let i= index">
                             <td>{{i+1}}</td>
-                            <td>{{user.id}}</td>
                             <td>{{user.firstName}}</td>
                             <td>{{user.lastName}}</td>
                             <td>{{user.username}}</td>
                             <td>{{user.email}}</td>
-                            <td style="color: #e74a3b;font-weight: 700;cursor: pointer;" (click)="removeUser(user.id, user.username)">Xóa</td>
                         </tr>
   
                     </tbody>
                 </table>
-            </div>
+            </div> -->
         </main>
     </div>
   </div>
-
-  
-  <!-- Modal Add -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <form [formGroup]="signUpForm">
-                <div class="form-group pt-3">
-                    <div class="input-field" [class.error]="signUpForm.controls['firstname'].dirty && signUpForm.hasError('required','firstname')">
-                        <span class="fa fa-user p-2"></span>
-                        <input formControlName="firstname" type="text" placeholder="FirstName">
-                    </div>
-                </div>
-                <small *ngIf="signUpForm.controls['firstname'].dirty && signUpForm.hasError('required','firstname')" class="text-danger">*Firstname is required</small>
-                <div class="form-group pt-3">
-                    <div class="input-field" [class.error]="signUpForm.controls['lastname'].dirty && signUpForm.hasError('required','lastname')">
-                        <span class="fa fa-user p-2"></span>
-                        <input formControlName="lastname" type="text" placeholder="LastName">
-                    </div>
-                </div>
-                <small *ngIf="signUpForm.controls['lastname'].dirty && signUpForm.hasError('required','lastname')" class="text-danger">*Lasttname is required</small>
-                <div class="form-group pt-3">
-                    <div class="input-field" [class.error]="signUpForm.controls['email'].dirty && signUpForm.hasError('required','email')">
-                        <span class="fa fa-user p-2"></span>
-                        <input formControlName="email" type="text" placeholder="Email">
-                    </div>
-                </div>
-                <small *ngIf="signUpForm.controls['email'].dirty && signUpForm.hasError('required','email')" class="text-danger">*Email is required</small>
-                <div class="form-group pt-3">
-                    <div class="input-field" [class.error]="signUpForm.controls['username'].dirty && signUpForm.hasError('required','username')">
-                        <span class="fa fa-user p-2"></span>
-                        <input formControlName="username" type="text" placeholder="Username">
-                    </div>
-                </div>
-                <small *ngIf="signUpForm.controls['username'].dirty && signUpForm.hasError('required','username')" class="text-danger">*Username is required</small>
-                <div class="form-group pt-3">
-                    <div class="input-field" [class.error]="signUpForm.controls['password'].dirty && signUpForm.hasError('required','password')">
-                        <span class="fa fa-lock p-2"></span>
-                        <input formControlName="password" [type]="type" placeholder="Password">
-                        <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
-                    </div>
-                </div>
-                <small *ngIf="signUpForm.controls['password'].dirty && signUpForm.hasError('required','password')" class="text-danger">*Password is required</small>
-                <select name="" id="" formControlName="role">
-                    <option value="Admin">Admin</option>
-                    <option value="User">User</option>
-                </select>
-                <button type="submit" (click)="onSignUp()" class="btn btn-primary btn-lock mt-4 w-100">Sign Up</button>
-            </form>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <!-- Button trigger modal
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">
-    Launch demo modal
-  </button> -->
-  

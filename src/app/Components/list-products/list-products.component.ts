@@ -24,7 +24,7 @@ export class ListProductsComponent {
     private cookie: CookieService,
     private cart: CartService,
     private toast: NgToastService,
-    private router : Router
+    private router : Router,
     ){}
 
   @Input() products : ProductDetailDTO[] = [];

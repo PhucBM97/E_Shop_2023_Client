@@ -5,6 +5,7 @@ import { User } from '../Models/User.model';
 import { Router, RouterModule } from '@angular/router';
 import {JwtHelperService} from '@auth0/angular-jwt'
 import { TokenApiModel } from '../Models/token-api.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -77,6 +78,10 @@ export class AuthService {
 
   renewToken(tokenApi: TokenApiModel){
     return this.http.post<any>(`${this.baseUrl}refresh`, tokenApi);
+  }
+
+  revmoveUser(id: number){
+    return this.http.delete<any>(`${this.baseUrl}removeUser/${id}`);
   }
 
 

@@ -1,0 +1,13 @@
+@import url('/src/assets/css/sb-admin-2.min.css');
+@import url('/src/assets/css/common.css');
+
+
+.nav-item a{
+    color: white;
+}
+.nav-link {
+    // border: 1px solid white !important;
+    // width: 210px !important;
+    border-bottom: 1px solid white;
+    cursor: pointer;
+}

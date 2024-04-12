@@ -18,6 +18,7 @@ import { ListProductsComponent } from './Components/list-products/list-products.
 import { ProductDetailComponent } from './Components/Pages/product-detail/product-detail.component';
 import { CartComponent } from './Components/Pages/cart/cart.component';
 import { CheckoutsComponent } from './Components/Pages/checkouts/checkouts.component';
+import { OrdersComponent } from './Components/Pages/orders/orders.component';
 
 const routes: Routes = [
 
@@ -91,6 +92,10 @@ const routes: Routes = [
   {
     path: 'checkouts',
     component: CheckoutsComponent
+  },
+  {
+    path: 'dashboard/orders',
+    component: OrdersComponent
   },
 
 
