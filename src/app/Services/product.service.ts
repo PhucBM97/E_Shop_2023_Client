@@ -39,11 +39,15 @@ export class ProductService {
     this.filter$.next(value);
   }
 
-  getAll(): Observable<any>{
-    return this.http.get(`${environment.apiUrl}${this.url}/GetProductList`);
+  getAll(CurrentPage: number, PageSize: number): Observable<any>{
+    return this.http.get(`${environment.apiUrl}${this.url}/GetProductList/${CurrentPage}/${PageSize}`);
   }
 
   getProduct(id: number): Observable<any>{
     return this.http.get(`${environment.apiUrl}${this.url}/GetProductById/${id}`);
+  }
+  
+  getProductsByBrand(brandId: number, currentPage: number, PageSize: number) :Observable<any>{
+    return this.http.get(`${environment.apiUrl}${this.url}/GetProductByBrand/${brandId}/${currentPage}/${PageSize}`);
   }
 }

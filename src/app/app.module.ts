@@ -21,15 +21,12 @@ import { DashboardComponent } from './Components/Pages/dashboard/dashboard.compo
 import { TokenInterceptor } from './Interceptors/token.interceptor';
 import { FormsModule } from '@angular/forms';
 import { ResetPasswordComponent } from './Components/Auth/reset-password/reset-password.component';
-import { AdidasComponent } from './Components/Pages/adidas/adidas.component';
-import { NikeComponent } from './Components/Pages/nike/nike.component';
-import { NewBalanceComponent } from './Components/Pages/new-balance/new-balance.component';
-import { ConverseComponent } from './Components/Pages/converse/converse.component';
-import { PumaComponent } from './Components/Pages/puma/puma.component';
+import { BrandsComponent } from './Components/Pages/brands/brands.component';
 import { CartComponent } from './Components/Pages/cart/cart.component';
 import { CheckoutsComponent } from './Components/Pages/checkouts/checkouts.component';
 import { OrdersComponent } from './Components/Pages/orders/orders.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { ProductDashComponent } from './Components/Pages/product-dash/product-dash.component';
 
 
 
@@ -47,11 +44,7 @@ const pageComponents = [
   SignupComponent,
   DashboardComponent,
   ResetPasswordComponent,
-  AdidasComponent,
-  NikeComponent,
-  NewBalanceComponent,
-  ConverseComponent,
-  PumaComponent,
+  BrandsComponent,
   CartComponent,
   CheckoutsComponent,
   OrdersComponent,
@@ -60,6 +53,7 @@ const pageComponents = [
   declarations: [
     AppComponent,
     pageComponents,
+    ProductDashComponent,
 
   ],
   imports: [

@@ -1,33 +1,60 @@
 import { Component } from '@angular/core';
-import { map, BehaviorSubject } from 'rxjs';
-import { Product } from 'src/app/Models/Product.model';
-import { ProductService } from 'src/app/Services/product.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Routes } from '@angular/router';
 import { ProductDetailDTO } from 'src/app/Models/ProductDetailDTO.model';
-import { NgxSpinnerService } from 'ngx-spinner';
+import { ProductService } from 'src/app/Services/product.service';
 
 @Component({
-  selector: 'app-shop-page',
-  templateUrl: './shop-page.component.html',
-  styleUrls: ['./shop-page.component.scss']
+  selector: 'app-brands',
+  templateUrl: './brands.component.html',
+  styleUrls: ['./brands.component.scss']
 })
-export class ShopPageComponent {
+export class BrandsComponent {
 
   products: ProductDetailDTO[] = [];
   selectedValue : string = "";
-  isLoaded: boolean = false;
   numbers: number[] = [];
-  pageSize: number = 9;
+  pageSize: number = 6;
   crrPage: number = 1;
   pageCount: number = 0;
+  brandId: number = 0; 
 
   constructor(
     private productService: ProductService,
-    private route: ActivatedRoute, 
-    private router: Router,
+    private route: ActivatedRoute
   ) {}
   
   ngOnInit(){
+
+    this.route.params.subscribe(params =>{
+      let brandName = params['brandName'];
+      console.log(brandName, 'brand nameeeeeeeeee');
+      
+
+      switch(brandName){
+        case 'Adidas':
+          this.brandId = 1
+          break;
+        case 'Nike':
+          this.brandId = 2
+          break;
+        case 'New Balance':
+          this.brandId = 3
+          break;
+        case 'Vans' :
+          this.brandId = 4
+          break;
+        case 'Puma' :
+          this.brandId = 5
+          break;
+        default:
+          this.brandId = 1
+          break;
+      }
+      console.log(params,'paramssssssssssssssssss');
+      this.getAllData(this.brandId, this.crrPage, this.pageSize);
+      
+    })
+
     this.getAll();
 
     this.productService.getFilter()
@@ -47,7 +74,7 @@ export class ShopPageComponent {
 
   getAll(type?: string){
     if((type?.length === 0) || type === undefined){
-      this.getAllData(this.crrPage, this.pageSize);
+      this.getAllData(this.brandId, this.crrPage, this.pageSize);
     } else {
       switch(type){
         case '1' :
@@ -63,18 +90,17 @@ export class ShopPageComponent {
     }
   }
 
-  getAllData(currentPage: number, PageSize: number){
-    this.productService.getAll(currentPage,PageSize)
+  getAllData(brandId: number, currentPage: number, pageSize: number){
+    this.productService.getProductsByBrand(brandId, currentPage, pageSize)
+    //.pipe(map(pros => pros.filter((pro: ProductDetailDTO) => pro.productBrand === 'Adidas')))
       .subscribe({
-        next: (res) => {
+        next: (res) => { 
           this.products = res.products;
           this.crrPage = res.currentPage;
           this.pageCount = res.pageCount;
           this.numbers = Array(this.pageCount).fill(0).map((x,i)=>i);
           window.scrollTo(0,0)
-
           console.log(res,'bt');
-          this.productService.setcommonData(res);
         },
         error: (err) => {
           console.log(err);
@@ -88,9 +114,5 @@ export class ShopPageComponent {
   getDataDesc(){
     this.products = this.products.sort((a: any,b: any) => b.productPrice - a.productPrice)
 
-  }
-
-  showAdidas(){
-    this.router.navigate(['login'], {relativeTo:this.route});
   }
 }

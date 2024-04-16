@@ -328,3 +328,19 @@
                         >
 
                         </app-list-products>
+
+
+                        <div class="pagination">
+                            <ul class="pagination-list">
+                                <button style="border:none;font-weight: 700;" (click)="getAllData(brandId,crrPage-1,pageSize)" [attr.disabled]="crrPage <= 1? true: null" >&lt;</button>
+                              <li *ngFor="let page of numbers" [class.active]="crrPage === (page+1)">
+                                <a style="border: 1px solid black;cursor: pointer;" (click)="getAllData(brandId, (page+1),pageSize)">{{ (page+1) }}</a>
+                              </li>
+                              <button style="border:none;font-weight: 700;" (click)="getAllData(brandId, crrPage+1, pageSize)" [attr.disabled]="crrPage == pageCount || pageCount == 1 ? true: null" >&gt;</button>
+                            </ul>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

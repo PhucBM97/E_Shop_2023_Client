@@ -20,3 +20,27 @@
 .rating i {
     padding: 5px;
 }
+
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+  }
+  
+  .pagination-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .pagination-list li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .pagination-list li.active a {
+    background-color: #337ab7;
+    color: white;
+  }
+  

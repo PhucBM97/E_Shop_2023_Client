@@ -11,7 +11,7 @@ export class ErrPageComponent {
   constructor(private productService: ProductService){}
 
   ngOnInit(){
-    this.productService.getAll().subscribe(res => {
+    this.productService.getAll(1,5).subscribe(res => {
       this.products = res;
     },
     err => {

@@ -4,7 +4,7 @@ import { Product } from 'src/app/Models/Product.model';
 import { CartService } from 'src/app/Services/cart.service';
 import { ProductService } from 'src/app/Services/product.service';
 import { Item } from './../../Models/Item.model';
-import { ProductDetailDTO } from 'src/app/Models/ProductDetail.model';
+import { ProductDetailDTO } from 'src/app/Models/ProductDetailDTO.model';
 import { Category } from './../../Models/Category.model';
 import { NgToastService } from 'ng-angular-popup';
 import { Router } from '@angular/router';

@@ -68,7 +68,8 @@
                     <nav class="header__menu mobile-menu">
                         <ul>
                             <ng-container *ngFor="let brand of brands">
-                                <li><a routerLink="{{brand.brandName?.toLowerCase()?.replace(' ', '')}}" href="./shop.html">{{brand.brandName}}</a></li>
+                                <!-- <li><a routerLink="{{brand.brandName?.toLowerCase()?.replace(' ', '')}}">{{brand.brandName}}</a></li> -->
+                                <li><a routerLink="/brands/{{brand.brandName}}">{{brand.brandName}}</a></li>
                             </ng-container>
                             <!-- <li class="active"><a href="./index.html">Home</a></li>
                             <li><a href="./shop.html">Shop</a></li>

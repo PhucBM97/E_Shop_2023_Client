@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Product } from 'src/app/Models/Product.model';
-import { ProductDetailDTO } from 'src/app/Models/ProductDetail.model';
+import { ProductDetailDTO } from 'src/app/Models/ProductDetailDTO.model';
 import { ProductService } from 'src/app/Services/product.service';
 
 @Component({
@@ -13,7 +13,7 @@ export class HomePageComponent {
   constructor(private productService: ProductService){}
 
   ngOnInit(){
-    this.productService.getAll().subscribe(res => {
+    this.productService.getAll(1,5).subscribe(res => {
       this.products = res;
     },
     err => {

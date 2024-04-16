@@ -9,16 +9,13 @@ import { authGuard } from './Guard/auth.guard';
 import { DashboardComponent } from './Components/Pages/dashboard/dashboard.component';
 import { ResetPasswordComponent } from './Components/Auth/reset-password/reset-password.component';
 import { adminGuard } from './Guard/admin.guard';
-import { AdidasComponent } from './Components/Pages/adidas/adidas.component';
-import { NikeComponent } from './Components/Pages/nike/nike.component';
-import { NewBalanceComponent } from './Components/Pages/new-balance/new-balance.component';
-import { ConverseComponent } from './Components/Pages/converse/converse.component';
-import { PumaComponent } from './Components/Pages/puma/puma.component';
+import { BrandsComponent } from './Components/Pages/brands/brands.component';
 import { ListProductsComponent } from './Components/list-products/list-products.component';
 import { ProductDetailComponent } from './Components/Pages/product-detail/product-detail.component';
 import { CartComponent } from './Components/Pages/cart/cart.component';
 import { CheckoutsComponent } from './Components/Pages/checkouts/checkouts.component';
 import { OrdersComponent } from './Components/Pages/orders/orders.component';
+import { ProductDashComponent } from './Components/Pages/product-dash/product-dash.component';
 
 const routes: Routes = [
 
@@ -33,24 +30,8 @@ const routes: Routes = [
     pathMatch: "full"
   },
   {
-    path: 'adidas',
-    component: AdidasComponent,
-  },
-  {
-    path: 'nike',
-    component: NikeComponent,
-  },
-  {
-    path: 'newbalance',
-    component: NewBalanceComponent,
-  },
-  {
-    path: 'converse',
-    component: ConverseComponent,
-  },
-  {
-    path: 'puma',
-    component: PumaComponent,
+    path: 'brands/:brandName',
+    component: BrandsComponent,
   },
   {
     path: 'err123',
@@ -97,6 +78,11 @@ const routes: Routes = [
     path: 'dashboard/orders',
     component: OrdersComponent
   },
+  {
+    path: 'dashboard/products',
+    component: ProductDashComponent
+  },
+
 
 
 

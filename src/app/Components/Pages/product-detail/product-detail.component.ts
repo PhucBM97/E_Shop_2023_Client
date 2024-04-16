@@ -56,7 +56,7 @@ export class ProductDetailComponent {
   }
 
   getColor(id: number, proName: string){
-    this.productService.getAll()
+    this.productService.getAll(1,5)
     .pipe(map(pros => pros.filter((pro: Product) => pro.productName?.includes(proName) && pro.productID.toString() !== id.toString())))
     .subscribe({
       next: (res) => {
