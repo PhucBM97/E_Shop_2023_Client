@@ -40,7 +40,7 @@ export class ProductDashComponent {
 
   ngOnInit(){
     this.productForm = this.fb.group({
-      productId:[''],
+      productId:[0],
       productName: [''],
       productPrice: [''],
       productDescription: [''],
