@@ -21,7 +21,7 @@ export class HeaderComponent {
   ) {}
 
   ngOnInit(){
-    this.getBrand();
+    this.getBrands();
 
 
     // phải để subcriber ở trên hàm getall
@@ -34,8 +34,8 @@ export class HeaderComponent {
     this.getCount();
   }
 
-  getBrand(){
-    this.brand.getBrand()
+  getBrands(){
+    this.brand.getBrands()
     .subscribe({
       next:(res) => {
         this.brands = res;

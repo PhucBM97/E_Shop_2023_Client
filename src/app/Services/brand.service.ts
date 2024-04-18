@@ -14,7 +14,7 @@ export class BrandService {
     private http: HttpClient
   ) { }
 
-  getBrand(): Observable<any>{
+  getBrands(): Observable<any>{
     return this.http.get(this.baseUrl);
   }
 }

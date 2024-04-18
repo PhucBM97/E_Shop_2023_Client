@@ -50,4 +50,8 @@ export class ProductService {
   getProductsByBrand(brandId: number, currentPage: number, PageSize: number) :Observable<any>{
     return this.http.get(`${environment.apiUrl}${this.url}/GetProductByBrand/${brandId}/${currentPage}/${PageSize}`);
   }
+
+  createProduct(formData: FormData): Observable<any> {
+    return this.http.post<any>(`${environment.apiUrl}${this.url}/AddProduct`, formData);
+  }
 }

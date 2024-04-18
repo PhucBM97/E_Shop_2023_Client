@@ -1,1 +1,17 @@
-<input type="file" (change)="onFileSelected($event)">
+<!-- <input type="file" (change)="onFileSelected($event)"> -->
+
+
+<!-- nhiều file -->
+<!-- <form (ngSubmit)="onSubmit()">
+    <input type="file" multiple (change)="onFileChange($event)">
+    <button type="submit">Upload</button>
+  </form> -->
+
+
+  <!-- object-form.component.html -->
+<form [formGroup]="objectForm" (ngSubmit)="onSubmit()">
+  <input type="text" formControlName="name" placeholder="Name">
+  <textarea formControlName="description" placeholder="Description"></textarea>
+  <input type="file" (change)="onSelectImages($event)" multiple>
+  <button type="submit">Submit</button>
+</form>
