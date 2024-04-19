@@ -136,7 +136,8 @@
                             <td>{{product.productName}}</td>
                             <td>{{product.productPrice | currency:'VND':'symbol':'1.0-0'}}</td>
                             <td>{{product.productBrand}}</td>
-                            <td style="color: #e74a3b;font-weight: 700;cursor: pointer;">Xóa</td>
+                            <td class="text-success" style="font-weight: 700;cursor: pointer;">Sửa</td>
+                            <td (click)="deleteProduct(product.productID || 0, product.productName || '')" style="color: #e74a3b;font-weight: 700;cursor: pointer;">Xóa</td>
                         </tr>
   
                     </tbody>

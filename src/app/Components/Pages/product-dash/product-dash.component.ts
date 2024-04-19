@@ -7,6 +7,7 @@ import { BrandService } from 'src/app/Services/brand.service';
 import { CategoryService } from 'src/app/Services/category.service';
 import { ProductService } from 'src/app/Services/product.service';
 import { NgToastService } from 'ng-angular-popup';
+import { OrderDetail } from './../../../Models/OrderDetail.model';
 
 @Component({
   selector: 'app-product-dash',
@@ -51,6 +52,7 @@ export class ProductDashComponent {
 
     this.getProducts(this.crrPage, this.pageSize);
 
+    // dropdown list
     this.getCategories();
     this.getBrands();
   }
@@ -163,5 +165,23 @@ export class ProductDashComponent {
 
   checkIsUpdate(value : boolean){
     this.isUpdate = value;
+  }
+
+  deleteProduct(proId: number, proName: string){
+    let check = confirm("Bạn có chắc muốn xóa sản phẩm: "+ proName);
+
+    if(check){
+      this.product.deleteProduct(proId)
+      .subscribe({
+        next: (res) => {
+          this.toast.success({detail: "SUCCESS", summary: res.message, duration:2000});
+          this.getProducts(this.crrPage, this.pageSize);
+          
+        },
+        error: (err) => {
+          this.toast.error({detail: "ERROR", summary: err.error?.message, duration:2000})
+        }
+      })
+    }
   }
 }

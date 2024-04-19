@@ -54,4 +54,8 @@ export class ProductService {
   createProduct(formData: FormData): Observable<any> {
     return this.http.post<any>(`${environment.apiUrl}${this.url}/AddProduct`, formData);
   }
+
+  deleteProduct(proId: number): Observable<any>{
+    return this.http.delete(`${environment.apiUrl}${this.url}/delete-product/${proId}`);
+  }
 }

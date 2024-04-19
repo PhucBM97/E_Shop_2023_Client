@@ -131,6 +131,53 @@
                     </tbody>
                 </table>
             </div> -->
+
+            <div class="table-responsive">
+                <table class="table table-striped table-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col">Mã đơn hàng</th>
+                            <th scope="col">Tên KH</th>
+                            <th scope="col">SĐT</th>
+                            <th scope="col">Địa chỉ</th>
+                            <th scope="col">Trạng thái</th>
+                            <th scope="col">Ngày đặt hàng</th>
+                            <th scope="col">Tổng tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let order of orders">
+                            <td>{{order.orderID}}</td>
+                            <td>{{order.customerName}}</td>
+                            <td>{{order.customerPhone}}</td>
+                            <td>{{order.customerAddress}}</td>
+                            <td>{{order.orderStatusCode}}</td>
+                            <td>{{order.orderDate}}</td>
+                            <td>{{order.orderTotal}}</td>
+                        </tr>
+                        <!-- <tr *ngFor="let product of products; let i= index">
+                            <td>{{i+1}}</td>
+                            <td><img src="{{product.productImage}}" alt="Sneaker"></td>
+                            <td>{{product.productID}}</td>
+                            <td>{{product.productName}}</td>
+                            <td>{{product.productPrice | currency:'VND':'symbol':'1.0-0'}}</td>
+                            <td>{{product.productBrand}}</td>
+                            <td class="text-success" style="font-weight: 700;cursor: pointer;">Sửa</td>
+                            <td (click)="deleteProduct(product.productID || 0, product.productName || '')" style="color: #e74a3b;font-weight: 700;cursor: pointer;">Xóa</td>
+                        </tr> -->
+  
+                    </tbody>
+                </table>
+                <!-- <div class="pagination">
+                    <ul class="pagination-list">
+                        <button style="border:none;font-weight: 700;" (click)="getProducts(crrPage-1,pageSize)" [attr.disabled]="crrPage <= 1? true: null" >&lt;</button>
+                      <li *ngFor="let page of numbers" [class.active]="crrPage === (page+1)">
+                        <a style="border: 1px solid black;cursor: pointer;" (click)="getProducts((page+1),pageSize)">{{ (page+1) }}</a>
+                      </li>
+                      <button style="border:none;font-weight: 700;" (click)="getProducts(crrPage+1, pageSize)" [attr.disabled]="crrPage == pageCount || pageCount == 1 ? true: null" >&gt;</button>
+                    </ul>
+                  </div> -->
+            </div>
         </main>
     </div>
   </div>
