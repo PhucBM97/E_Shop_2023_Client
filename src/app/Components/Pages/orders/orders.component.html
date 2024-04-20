@@ -153,7 +153,7 @@
                                     <td>{{order.customerAddress}}</td>
                                     <td style="width: 100px;height: 30px;font-size: 16px;" class="badge bg-{{order.orderStatusCode == 0 ? 'danger' : order.orderStatusCode == 1 ? 'warning' : 'success'}}">{{order.orderStatusCode == 0 ? "Cancel" : order.orderStatusCode == 1 ? "Pending" : "Done"}}</td>
                                     <td>{{order.orderDate | date: 'dd/MM/yyyy HH:mm'}}</td>
-                                    <td>{{order.orderTotal}}</td>
+                                    <td>{{order.orderTotal | currency:'VND':'symbol':'1.0-0'}}</td>
                                 </tr>
                         <!-- <tr *ngFor="let product of products; let i= index">
                             <td>{{i+1}}</td>

@@ -1,16 +1,37 @@
-<div class="container">
-    <div class="row">
-        <div class="d-flex flex-column">
-            <div *ngFor="let item of orderDetails" class="d-flex flex-row">
-                <p>{{item.productId}}</p>
-                <p>{{item.productName}}</p>
-                <img style="width: 100px;height: 100px;" src="{{item.productImg}}" alt="">
-                <span>{{item.productPrice}}</span>---
-                <span>{{item.productQuantity}}</span>---
-                <span>{{item.subTotal}}</span>---
-            </div>
-        </div>
+
+<div class="container mb-5">
+    <h2 class="my-4">Danh sách dữ liệu</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Trường 1</th>
+                <th scope="col">Trường 2</th>
+                <th scope="col">Trường 3</th>
+                <th scope="col">Trường 4</th>
+                <th scope="col">Trường 5</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of orderDetails">
+                <td>{{item.productId}}</td>
+                <td><img style="width: 100px;height: 100px;" src="{{item.productImg}}" alt=""></td>
+                <td>{{item.productName}}</td>
+                <td>{{item.productPrice}}</td>
+                <td>{{item.productQuantity}}</td>
+                <td>{{item.subTotal}}</td>
+            </tr>
+            <!-- Thêm các hàng dữ liệu khác nếu cần -->
+        </tbody>
+    </table>
+
+<div class="d-flex justify-content-between">
+    <span>Tổng tiền : {{total | currency:'VND':'symbol':'1.0-0'}}</span>
+    <div>
+        <button (click)="updateStatusCode(this.orderId, 0)" style="margin-right: 30px;" class="btn btn-danger">Hủy</button>
+        <button (click)="updateStatusCode(this.orderId, 2)" class="btn btn-primary">Hoàn thành</button>
     </div>
+</div>
+
 </div>
 
 
