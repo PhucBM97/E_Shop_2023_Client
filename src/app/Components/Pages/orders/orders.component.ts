@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { OrderService } from 'src/app/Services/order.service';
 
 @Component({
@@ -10,7 +11,8 @@ export class OrdersComponent {
 
   orders: any[] = [];
   constructor(
-    private order: OrderService
+    private order: OrderService,
+    private router: Router
   ) {}
 
   ngOnInit(){
@@ -28,5 +30,9 @@ export class OrdersComponent {
 
       }
     })
+  }
+
+  goToDetail(orderId: number){
+    this.router.navigate(['dashboard/orders/', orderId])
   }
 }

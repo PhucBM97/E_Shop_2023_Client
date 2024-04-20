@@ -27,6 +27,7 @@ import { CheckoutsComponent } from './Components/Pages/checkouts/checkouts.compo
 import { OrdersComponent } from './Components/Pages/orders/orders.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ProductDashComponent } from './Components/Pages/product-dash/product-dash.component';
+import { OrderDetailComponent } from './Components/Pages/order-detail/order-detail.component';
 
 
 
@@ -54,6 +55,7 @@ const pageComponents = [
     AppComponent,
     pageComponents,
     ProductDashComponent,
+    OrderDetailComponent,
 
   ],
   imports: [

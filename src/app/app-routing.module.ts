@@ -16,6 +16,7 @@ import { CartComponent } from './Components/Pages/cart/cart.component';
 import { CheckoutsComponent } from './Components/Pages/checkouts/checkouts.component';
 import { OrdersComponent } from './Components/Pages/orders/orders.component';
 import { ProductDashComponent } from './Components/Pages/product-dash/product-dash.component';
+import { OrderDetailComponent } from './Components/Pages/order-detail/order-detail.component';
 
 const routes: Routes = [
 
@@ -77,6 +78,10 @@ const routes: Routes = [
   {
     path: 'dashboard/orders',
     component: OrdersComponent
+  },
+  {
+    path: 'dashboard/orders/:orderId',
+    component: OrderDetailComponent
   },
   {
     path: 'dashboard/products',

@@ -146,15 +146,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let order of orders">
-                            <td>{{order.orderID}}</td>
-                            <td>{{order.customerName}}</td>
-                            <td>{{order.customerPhone}}</td>
-                            <td>{{order.customerAddress}}</td>
-                            <td>{{order.orderStatusCode}}</td>
-                            <td>{{order.orderDate}}</td>
-                            <td>{{order.orderTotal}}</td>
-                        </tr>
+                                <tr *ngFor="let order of orders" (click)="goToDetail(order.orderID)">
+                                    <td>{{order.orderID}}</td>
+                                    <td>{{order.customerName}}</td>
+                                    <td>{{order.customerPhone}}</td>
+                                    <td>{{order.customerAddress}}</td>
+                                    <td style="width: 100px;height: 30px;font-size: 16px;" class="badge bg-{{order.orderStatusCode == 0 ? 'danger' : order.orderStatusCode == 1 ? 'warning' : 'success'}}">{{order.orderStatusCode == 0 ? "Cancel" : order.orderStatusCode == 1 ? "Pending" : "Done"}}</td>
+                                    <td>{{order.orderDate | date: 'dd/MM/yyyy HH:mm'}}</td>
+                                    <td>{{order.orderTotal}}</td>
+                                </tr>
                         <!-- <tr *ngFor="let product of products; let i= index">
                             <td>{{i+1}}</td>
                             <td><img src="{{product.productImage}}" alt="Sneaker"></td>

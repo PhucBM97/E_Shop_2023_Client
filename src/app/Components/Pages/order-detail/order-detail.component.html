@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row">
+        <div class="d-flex flex-column">
+            <div *ngFor="let item of orderDetails" class="d-flex flex-row">
+                <p>{{item.productId}}</p>
+                <p>{{item.productName}}</p>
+                <img style="width: 100px;height: 100px;" src="{{item.productImg}}" alt="">
+                <span>{{item.productPrice}}</span>---
+                <span>{{item.productQuantity}}</span>---
+                <span>{{item.subTotal}}</span>---
+            </div>
+        </div>
+    </div>
+</div>
+
+
