@@ -14,6 +14,7 @@ import ValidateForm from './../../../Helpers/validateform';
 export class CheckoutsComponent {
 
   orderForm!: FormGroup;
+  getItem: any[] = [];
   productCart: any[] = [];
   totalPrice: number = 0;
   shippingFee: number = 40000.00;
@@ -41,9 +42,11 @@ export class CheckoutsComponent {
   }
 
   getProductFromCookie(){
-    this.productCart = JSON.parse(this.cookie.get('product'));
+    this.getItem = JSON.parse(this.cookie.get('product'));
     let total = 0;
-    this.productCart.map(value => {
+    this.getItem.map(value => {
+      if(value.productQuantity > 0)
+        this.productCart.push(value);
       total += (value.productPrice * value.productQuantity);
     })
     this.totalPrice = total;

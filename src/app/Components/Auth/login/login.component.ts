@@ -68,7 +68,7 @@ export class LoginComponent {
           if(tokenPayload.role === 'Admin'){
             this.router.navigate(['dashboard'])
           } else {
-            this.router.navigate(['home'])
+            this.router.navigate(['shop'])
           }
         },
         error:(err) => {
