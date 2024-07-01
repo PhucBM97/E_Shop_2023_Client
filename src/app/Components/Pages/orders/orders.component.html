@@ -178,6 +178,31 @@
                     </ul>
                   </div> -->
             </div>
+
+            <hr>
+            <h4>Doanh thu tháng này</h4>
+
+            <ngx-charts-line-chart
+            [view]="[700, 400]"
+            [results]="dete"
+            [gradient]="gradient"
+            [xAxis]="showXAxis"
+            [yAxis]="showYAxis"
+            [legend]="showLegend"
+            [showXAxisLabel]="showXAxisLabel"
+            [showYAxisLabel]="showYAxisLabel"
+            [xAxisLabel]="xAxisLabel"
+            [yAxisLabel]="yAxisLabel"
+            (select)="onSelect($event)">
+          </ngx-charts-line-chart>
+          <ngx-charts-bar-horizontal>
+
+          </ngx-charts-bar-horizontal>
+          
+              
         </main>
+
+
+          
     </div>
   </div>

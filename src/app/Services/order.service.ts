@@ -24,4 +24,8 @@ export class OrderService {
   updateStatus(statusCode: OrderStatusCodeDTO): Observable<any>{
     return this.http.put(`${this.baseUrl}/updatestatus`, statusCode);
   }
+
+  getOrderByMonth(month: number): Observable<any>{
+    return this.http.get(`${this.baseUrl}/getorderbymonth/${month}`)
+  }
 }

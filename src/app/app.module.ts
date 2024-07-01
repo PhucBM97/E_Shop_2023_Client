@@ -28,6 +28,8 @@ import { OrdersComponent } from './Components/Pages/orders/orders.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ProductDashComponent } from './Components/Pages/product-dash/product-dash.component';
 import { OrderDetailComponent } from './Components/Pages/order-detail/order-detail.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -65,7 +67,9 @@ const pageComponents = [
     ReactiveFormsModule,
     NgToastModule,
     FormsModule,
-    NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' })
+    NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' }),
+    NgxChartsModule,
+    BrowserAnimationsModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

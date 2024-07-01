@@ -5,6 +5,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { OrderDTO } from 'src/app/Models/OrderDTO.model';
 import { CartService } from 'src/app/Services/cart.service';
 import ValidateForm from './../../../Helpers/validateform';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-checkouts',
@@ -24,7 +25,8 @@ export class CheckoutsComponent {
     private fb: FormBuilder,
     private cookie: CookieService,
     private cart: CartService,
-    private toast: NgToastService
+    private toast: NgToastService,
+    private router : Router
   ) {}
 
   isDeliveryHome: Boolean = true;
@@ -82,8 +84,10 @@ export class CheckoutsComponent {
       this.cart.createOrder(this.OrderObj)
       .subscribe({
         next:(res) => {
-          this.toast.success({detail: "SUCCESS", summary: res.messsage, duration: 1000});
+          this.toast.success({detail: "SUCCESS", summary: 'Đặt hàng thành công !!!', duration: 1000});
           this.cookie.deleteAll();
+          this.router.navigate(['shop']);
+          window.location.reload();
         },
         error:(err) => {
           this.toast.error({detail: "ERROR", duration: 1000});
