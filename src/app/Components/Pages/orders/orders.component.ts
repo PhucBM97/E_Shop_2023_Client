@@ -10,21 +10,17 @@ import { map } from 'rxjs';
 })
 export class OrdersComponent {
 
-  view: any[] = [700, 400];
+  data: any[] = [];
 
-  dete: any[] = [];
-  dataTest: any[] = [];
-  // Dữ liệu mẫu
-  aaaaaa: { name: string; series: { name: string; value: number; }[]; }[] = [];
-  bbbb: any[] = [];
+  month: number[] = [1,2,3,4,5,6,7,8,9,10,11,12]
 
-  testObj  = {
-    name : 'Doanh Thu',
-    series: [] = [{
-      name : '',
-      value : 0
-    }]
-  }
+  // testObj  = {
+  //   name : 'Doanh Thu',
+  //   series: [] = [{
+  //     name : '',
+  //     value : 0
+  //   }]
+  // }
 
   public single = [
     {
@@ -64,7 +60,7 @@ export class OrdersComponent {
       ]
     },
     {
-      name: 'con cẹc',
+      name: 'TEst',
       series: [
         { name: 'Jan', value: 50 },
         { name: 'Feb', value: 60 },
@@ -72,15 +68,6 @@ export class OrdersComponent {
         // thêm dữ liệu cho các tháng khác
       ]
     },
-    // {
-    //   name: 'Series 2',
-    //   series: [
-    //     { name: 'Jan', value: 70 },
-    //     { name: 'Feb', value: 65 },
-    //     { name: 'Mar', value: 80 },
-    //     // thêm dữ liệu cho các tháng khác
-    //   ]
-    // }
   ];
 
 
@@ -92,7 +79,7 @@ export class OrdersComponent {
   showXAxisLabel = true;
   xAxisLabel = 'Month';
   showYAxisLabel = true;
-  yAxisLabel = 'Value';
+  yAxisLabel = 'VND';
 
   onSelect(event: any) {
     console.log(event);
@@ -106,12 +93,14 @@ export class OrdersComponent {
   constructor(
     private order: OrderService,
     private router: Router
-  ) {  }
+  ) { 
+        ////
+        const date = new Date();
+        this.crrMonth = date.getMonth() + 1;
+   }
 
   ngOnInit(){
-    ////
-    const date = new Date();
-    this.crrMonth = date.getMonth() + 1;
+
 
     console.log(this.crrMonth, 'monthhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh');
     
@@ -132,41 +121,45 @@ export class OrdersComponent {
     })
   }
 
-  getOrderByMonth(month: number){
+  getOrderByMonth(event : any | number){
+    this.data = [];
+    let month = 0;
+    if(typeof event !== 'number')
+      month = event.target.value;
+    else
+      month = event;
+    this.crrMonth = month;
+    
     this.order.getOrderByMonth(month).subscribe({
       next: (res) => {
-        this.ordersByMonth = res;
-        console.log(this.ordersByMonth, 'testttttttttttttt data');
-
-        res.map((data: any) => {
-          console.log(data, 'ppppppppppppppppppppppppppppppppppppp');
-          this.testObj.series.push(data)
+        //this.ordersByMonth = res;
+        this.data.push({
+          name : 'Doanh Thu',
+          series : [] = res
         })
-        this.testObj.series.shift();
-        console.log(this.testObj, 'test obj');
-        
 
-        this.dete.push(this.testObj)
+        this.data = [...this.data];
 
-        this.dete  = [...this.dete]
 
-        // this.dataTest = res.map((datum: { orderDate: any; total: any; }) => ({ name: datum.orderDate, value: datum.total }));
-        // console.log(this.dataTest, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
-        // this.aaaaaa.push({
-        //   name : 'Doanh Thu',
-        //   series: [...this.dataTest]
+        // res.map((data: any) => {
+        //   console.log(data, 'ppppppppppppppppppppppppppppppppppppp');
+        //   this.testObj.series.push(data)
         // })
-        // this.bbbb = res.map((item: any) => ({
-        //   name: 'Doanh Thu',
-        //   series: [] = serie
-        // }))
+        // this.testObj.series.shift();
+        // console.log(this.testObj, 'test obj');
+        // this.dete.push(this.testObj)
+        // this.dete  = [...this.dete]
 
+
+
+
+        // Mẫu ví dụ dùng MAP
         // let i = 0;
         // let valueeee = 100
         // this.dete = this.multiSeriesData.map((group) => {
         //   console.log(group, 'group nèeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee');
         //   group.series = group.series.map(dataItem => {
-        //     dataItem.name = 'con cẹcccccccccccccccccccccccc'
+        //     dataItem.name = 
         //     dataItem.value = valueeee += 100
         //     return dataItem
         //   })
@@ -174,15 +167,6 @@ export class OrdersComponent {
           
         // })
 
-
-        console.log(this.bbbb,'wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww');
-        
-
-        console.log(this.aaaaaa,'qweqweqweqweqweqweqweqweqweqwe');
-        console.log(this.multiSeriesData,'qywteywteyqyqwy');
-        
-        
-        //this.multiSeriesData.series = this.dataTest
       },
       error: (err) => {
 

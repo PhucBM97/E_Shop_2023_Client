@@ -180,11 +180,25 @@
             </div>
 
             <hr>
-            <h4>Doanh thu tháng này</h4>
+            <div style="display: flex;justify-content: space-between;">
+                <span style="font-size: 26px; font-weight: bold;">Doanh thu tháng Tháng {{crrMonth}} </span>
+                <div class="combobox">
+                    <select
+                    (change)="getOrderByMonth($event)"
+                    [value]=""
+                    >
+                        <option *ngFor="let i of month"
+                        [selected]="i === crrMonth"
+                            value="{{i}}">Tháng {{i}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+
 
             <ngx-charts-line-chart
             [view]="[700, 400]"
-            [results]="dete"
+            [results]="data"
             [gradient]="gradient"
             [xAxis]="showXAxis"
             [yAxis]="showYAxis"
